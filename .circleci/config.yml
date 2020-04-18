@@ -6,7 +6,7 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-            - "57:5a:95:6d:fa:af:91:a2:84:aa:25:a1:b5:c7:55:09"
+            - "73:61:5a:31:9c:71:65:b5:71:d5:d9:5f:4d:69:35:9e"
       - checkout
       - run:
           name: "Deploy"
@@ -18,7 +18,7 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-            - "57:5a:95:6d:fa:af:91:a2:84:aa:25:a1:b5:c7:55:09"
+            - "73:61:5a:31:9c:71:65:b5:71:d5:d9:5f:4d:69:35:9e"
       - checkout
       - run:
           name: "Deploy"
