@@ -11,10 +11,7 @@ jobs:
       - run:
           name: "Deploy"
           command: |
-            sudo chmod 700 ~/.ssh/
-            sudo chmod 600 ~/.ssh/*
-            sudo chown -R circleci ~/.ssh/
-            sudo chgrp -R circleci ~/.ssh/
+            chmod 400 secondtry.pem
             scp -v -o StrictHostKeyChecking=no -r index.html ubuntu@ip-172-31-37-110:/var/www/html/index.html
   deploy2:
     docker:
@@ -27,10 +24,7 @@ jobs:
       - run:
           name: "Deploy"
           command: |
-            sudo chmod 700 ~/.ssh/
-            sudo chmod 600 ~/.ssh/*
-            sudo chown -R circleci ~/.ssh/
-            sudo chgrp -R circleci ~/.ssh/
+            chmod 400 secondtry.pem
             scp -o StrictHostKeyChecking=no -r index.html ubuntu@ip-172-31-2-79:/var/www/html/index.html
 workflows: 
   version: 2
