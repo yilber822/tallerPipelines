@@ -11,7 +11,7 @@ jobs:
       - run:
           name: "Deploy"
           command: |
-            scp -o "StrictHostKeyChecking=yes" index.html ec2-user@ec2-3-85-55-102.compute-1.amazonaws.com:/var/www/html/index.html
+            scp -o StrictHostKeyChecking=no index.html ec2-user@ec2-3-85-55-102.compute-1.amazonaws.com:/var/www/html/index.html
   deploy2:
     docker:
       - image: circleci/openjdk
@@ -23,7 +23,7 @@ jobs:
       - run:
           name: "Deploy"
           command: |
-            scp -o "StrictHostKeyChecking=yes" index.html ec2-user@ec2-34-201-25-105.compute-1.amazonaws.com:/var/www/html/index.html
+            scp -o StrictHostKeyChecking=no index.html ec2-user@ec2-34-201-25-105.compute-1.amazonaws.com:/var/www/html/index.html
 workflows: 
   version: 2
   Ejecutar:
