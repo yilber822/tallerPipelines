@@ -11,7 +11,6 @@ jobs:
       - run:
           name: "Deploy"
           command: |
-            grep 'sshd' /var/log/secure | grep 'Authentication refused' | tail -5
             scp -v -o StrictHostKeyChecking=no -r index.html ec2-54-145-193-18.compute-1.amazonaws.com:/var/www/html/index.html
   deploy2:
     docker:
@@ -24,7 +23,6 @@ jobs:
       - run:
           name: "Deploy"
           command: |
-            chmod 400 secondtry.pem
             scp -o StrictHostKeyChecking=no -r index.html ec2-34-225-45-85.compute-1.amazonaws.com:/var/www/html/index.html
 workflows: 
   version: 2
