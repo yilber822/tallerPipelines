@@ -11,7 +11,7 @@ jobs:
       - run:
           name: "Deploy"
           command: |
-            ssh -v git@github.com
+            ssh git@github.com
             scp -o StrictHostKeyChecking=no index.html ec2-user@ec2-3-85-55-102.compute-1.amazonaws.com:/var/www/html/index.html
   deploy2:
     docker:
