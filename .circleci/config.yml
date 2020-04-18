@@ -11,8 +11,7 @@ jobs:
       - run:
           name: "Deploy"
           command: |
-            ssh git@github.com
-            scp -o StrictHostKeyChecking=no index.html ec2-user@ec2-3-85-55-102.compute-1.amazonaws.com:/var/www/html/index.html
+            scp -v -o StrictHostKeyChecking=no index.html ec2-user@ec2-3-85-55-102.compute-1.amazonaws.com:/var/www/html/index.html
   deploy2:
     docker:
       - image: circleci/openjdk
