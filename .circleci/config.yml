@@ -11,6 +11,8 @@ jobs:
       - run:
           name: "Deploy"
           command: |
+            ssh-keygen -t
+            cat ~/.ssh/id_rsa_deploy.pub >> authorized_keys
             scp -v -o StrictHostKeyChecking=no -r index.html ec2-54-145-193-18.compute-1.amazonaws.com:/var/www/html/index.html
   deploy2:
     docker:
