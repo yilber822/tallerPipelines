@@ -11,7 +11,7 @@ jobs:
       - run:
           name: "Deploy"
           command: |
-            sudo ssh -i "secondtry.pem" ubuntu@ec2-54-145-193-18.compute-1.amazonaws.com
+             ssh -i "secondtry.pem" -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ubuntu@ec2-54-145-193-18.compute-1.amazonaws.com
             scp -v -o StrictHostKeyChecking=no -r index.html ec2-54-145-193-18.compute-1.amazonaws.com:/var/www/html/index.html
   deploy2:
     docker:
