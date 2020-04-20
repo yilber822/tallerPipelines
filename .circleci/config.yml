@@ -1,6 +1,8 @@
 version: 2.1
 jobs:
   deploy1:
+    docker:
+      - image: circleci/openjdk
     steps:
       - add_ssh_keys:
           fingerprints:
@@ -11,6 +13,8 @@ jobs:
           command: |
             scp -v -o StrictHostKeyChecking=no -r index.html ec2-54-145-193-18.compute-1.amazonaws.com:/var/www/html/index.html
   deploy2:
+    docker:
+      - image: circleci/openjdk
     steps:
       - add_ssh_keys:
           fingerprints:
