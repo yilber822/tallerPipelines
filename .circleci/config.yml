@@ -11,7 +11,6 @@ jobs:
       - run:
           name: "Deploy"
           command: |
-            cd ~/.ssh
             chmod 600 "secondtry.pem"
             chmod 700 "secondtry.pem"
             ssh -i "secondtry.pem" -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ubuntu@ec2-54-145-193-18.compute-1.amazonaws.com
