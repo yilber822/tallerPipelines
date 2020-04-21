@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  deploy1:
+  deployDesarrollo:
     docker:
       - image: circleci/openjdk
     steps:
@@ -11,12 +11,8 @@ jobs:
       - run:
           name: "Deploy"
           command: |
-            chmod 600 "secondtry.pem"
-            chmod 700 "secondtry.pem"
-            ssh -i "secondtry.pem" -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ubuntu@ec2-54-145-193-18.compute-1.amazonaws.com
-            scp -v -o StrictHostKeyChecking=no -r index.html ec2-54-145-193-18.compute-1.amazonaws.com:/var/www/html/index.html
-            whoami
-  deploy2:
+            scp -vvv -o StrictHostKeyChecking=no -r index.html ec2-54-145-193-18.compute-1.amazonaws.com:/var/www/html/index.html
+  deployProduccion:
     docker:
       - image: circleci/openjdk
     steps:
@@ -32,11 +28,11 @@ workflows:
   version: 2
   Ejecutar:
     jobs:
-      - deploy1
+      - deployDesarrollo
       - request-testing:
           type: approval
           requires:
-            - deploy1
-      - deploy2:
+            - deployDesarrollo
+      - deployProduccion:
           requires:
             - request-testing
