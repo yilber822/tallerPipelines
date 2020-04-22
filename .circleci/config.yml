@@ -9,11 +9,10 @@ jobs:
             - "69:88:a0:f6:61:80:6a:b3:f3:b6:4b:c6:ad:20:fd:a2"
       - checkout
       - run:
-          name: "Deploy"
-          command: |
-            ssh-agent -s
-            ssh-add -l -E md5          
-            scp -vvv -o StrictHostKeyChecking=no -r index.html ec2-54-145-193-18.compute-1.amazonaws.com:/var/www/html/index.html
+          name: "Deploy development"
+          command: |    
+            chmod 600 secondtry.pem
+            scp -o StrictHostKeyChecking=no -i secondtry.pem -r index.html ec2-54-145-193-18.compute-1.amazonaws.com:/var/www/html/index.html
   deployProduccion:
     docker:
       - image: circleci/openjdk
@@ -23,7 +22,7 @@ jobs:
             - "69:88:a0:f6:61:80:6a:b3:f3:b6:4b:c6:ad:20:fd:a2"
       - checkout
       - run:
-          name: "Deploy"
+          name: "Deploy production"
           command: |
             scp -o StrictHostKeyChecking=no -r index.html ec2-34-225-45-85.compute-1.amazonaws.com:/var/www/html/index.html
 workflows: 
