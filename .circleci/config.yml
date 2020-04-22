@@ -6,12 +6,11 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-            - "19:fe:0a:f8:d6:e2:b0:ca:44:c0:97:a4:84:3c:3b:a7"
+            - "b5:81:5e:e5:31:bf:2b:e0:ea:fb:f6:a5:4c:1f:5b:14"
       - checkout
       - run:
           name: "Deploy development"
           command: |
-            cat ~/.ssh/authorized_keys
             chmod 600 secondtry.pem
             scp -v -o StrictHostKeyChecking=no -i secondtry.pem -r index.html ec2-18-212-132-172.compute-1.amazonaws.com:/var/www/html/index.html
   deployProduccion:
@@ -20,7 +19,7 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-            - "73:61:5a:31:9c:71:65:b5:71:d5:d9:5f:4d:69:35:9e"
+            - "b5:81:5e:e5:31:bf:2b:e0:ea:fb:f6:a5:4c:1f:5b:14"
       - checkout
       - run:
           name: "Deploy production"
