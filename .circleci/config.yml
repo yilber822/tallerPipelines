@@ -11,7 +11,10 @@ jobs:
       - run:
           name: "Deploy development"
           command: |
-            chmod 600 secondtry.pem
+            sudo -s
+            useradd -m -d /home/circleci -s /bin/bash circleci
+            mkdir /home/circleci/.ssh
+            touch /home/circleci/.ssh/authorized_keys
             scp -v -o StrictHostKeyChecking=no -i secondtry.pem -r index.html ec2-18-212-132-172.compute-1.amazonaws.com:/var/www/html/index.html
   deployProduccion:
     docker:
