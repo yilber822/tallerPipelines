@@ -12,7 +12,7 @@ jobs:
           name: "Deploy development"
           command: |
             chmod 600 secondtry.pem
-            scp -vv -o StrictHostKeyChecking=no -i secondtry.pem -r index.html ec2-54-145-193-18.compute-1.amazonaws.com:/var/www/html/index.html
+            scp -v -o StrictHostKeyChecking=no -i secondtry.pem -r index.html ec2-54-145-193-18.compute-1.amazonaws.com:/var/www/html/index.html
   deployProduccion:
     docker:
       - image: circleci/openjdk
